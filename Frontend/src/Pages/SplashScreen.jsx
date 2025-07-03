@@ -16,8 +16,7 @@ const SplashScreen = () => {
       <div
         className="h-[181px] w-[181px] flex justify-center align-center rounded-[20px]"
         style={{
-          boxShadow:
-            "rgba(50, 50, 93, 0.25) 0px 6px 15px 10px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+          boxShadow: `rgba(255, 255, 255, 0.2) -4px -4px 6px 0px, rgba(50, 50, 93, 0.2) 5px 4px 10px 5px, rgba(0, 0, 0, 0.3) 3px 3px 7px -3px`,
           alignItems: "center",
           justifyContent: "center",
         }}
