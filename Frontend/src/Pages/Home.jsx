@@ -32,7 +32,7 @@ const Home = () => {
 
       <div className="absolute bottom-8 w-[80%] flex justify-center">
         <Link
-          to="/user/login"
+          to="/user-login"
           className="text-white text-center px-6 py-3 rounded-md font-semibold w-[100%]
              bg-[linear-gradient(90deg,_#1976D2_0%,_#535AFF_100%)]
              hover:from-[#1565C0] hover:to-[#3F51B5]
