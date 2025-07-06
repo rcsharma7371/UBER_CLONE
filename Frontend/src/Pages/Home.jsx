@@ -30,7 +30,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 w-[80%] flex justify-center">
+      <div className="absolute bottom-8 w-[80%] flex justify-between">
         <Link
           to="/user-login"
           className="text-white text-center px-6 py-3 rounded-md font-semibold w-[100%]
@@ -43,7 +43,7 @@ const Home = () => {
             `,
             }}
         >
-          Get Started
+          Get Started  &nbsp;&nbsp;&nbsp;<i className="fa-solid fa-arrow-right-long top-5"></i>
         </Link>
       </div>
     </div>
