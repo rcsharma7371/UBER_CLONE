@@ -19,13 +19,13 @@ const UserLogin = () => {
           <input
             type="text"
             placeholder="example@gmail.com"
-            className="rounded px-4 py-2 mb-2 bg-[#414141] placeholder:text-sm focus:outline-none focus:border-blue-500 text-white"
+            className="rounded px-4 py-2 mb-2 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
           />
           <h3 className="mb-2 semi-bold text-lg text-white">Enter Password</h3>
           <input
             type={!hide ? "password" : "text"}
             placeholder="Password"
-            className="rounded px-4 py-2 bg-[#414141] placeholder:text-sm focus:outline-none focus:border-blue-500 text-white"
+            className="rounded px-4 py-2 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
           />
           {hide ? (
             <i

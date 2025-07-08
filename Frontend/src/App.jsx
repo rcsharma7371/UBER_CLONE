@@ -6,6 +6,8 @@ import SplashScreen from "./Pages/splashScreen";
 import ForgotPassword from "./Pages/ForgotPassword";
 import CaptainLogin from "./Pages/CaptainLogin";
 import UserSignUp from "./Pages/UserSignUp";
+import SignupProfile from "./Pages/SignupProfile";
+import RegistrationDone from "./Pages/RegistrationDone";
 
 const App = () => {
   return (
@@ -17,6 +19,9 @@ const App = () => {
           <Route path="/user-login" element={<UserLogin />} />
           <Route path="/user-signup" element={<UserSignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/signup-profile" element={<SignupProfile />} />
+          <Route path="/registration-done" element={<RegistrationDone />} />
+
         </Routes>
         <Routes>
           {/* <Route path="/captain-signup" element={<UserLogin />} /> */}
