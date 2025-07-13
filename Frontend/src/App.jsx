@@ -8,6 +8,7 @@ import CaptainLogin from "./Pages/CaptainLogin";
 import UserSignUp from "./Pages/UserSignUp";
 import SignupProfile from "./Pages/SignupProfile";
 import RegistrationDone from "./Pages/RegistrationDone";
+import VerifyOtp from "./Pages/VerifyOtp";
 
 const App = () => {
   return (
@@ -18,9 +19,10 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/user-login" element={<UserLogin />} />
           <Route path="/user-signup" element={<UserSignUp />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup-profile" element={<SignupProfile />} />
           <Route path="/registration-done" element={<RegistrationDone />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/verify-otp" element={<VerifyOtp />} />
 
         </Routes>
         <Routes>

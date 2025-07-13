@@ -19,22 +19,22 @@ const UserLogin = () => {
           <input
             type="text"
             placeholder="example@gmail.com"
-            className="rounded px-4 py-2 mb-2 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
+            className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
           />
           <h3 className="mb-2 semi-bold text-lg text-white">Enter Password</h3>
           <input
             type={!hide ? "password" : "text"}
             placeholder="Password"
-            className="rounded px-4 py-2 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
+            className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
           />
           {hide ? (
             <i
-              className="fa-solid fa-eye-slash absolute top-[133px] right-[20px]"
+              className="fa-solid fa-eye-slash text-white absolute top-[112px] right-[20px]"
               onClick={() => setHide(!hide)}
             ></i>
           ) : (
             <i
-              className="fa-solid fa-eye absolute top-[133px] right-[20px]"
+              className="fa-solid fa-eye absolute text-white top-[112px] right-[20px]"
               onClick={() => setHide(!hide)}
             ></i>
           )}

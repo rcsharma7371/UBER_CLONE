@@ -11,18 +11,18 @@ const UserSignUp = () => {
       </div>
       <div className="flex flex-col w-full p-3 flex-grow text-white">
         <h3 className="text-m mb-4">What's your name?</h3>
-        <form className="form">
+        <form className="form flex flex-row gap-4 w-full">
           <input
             type="text"
             placeholder="First"
             name="firstName"
-            className="rounded px-4 py-2 mb-4 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
+            className="w-[50%] mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
           />
           <input
             type="text"
             placeholder="Last"
             name="lastName"
-            className="rounded px-4 py-2 mb-4 bg-[#414141] placeholder:text-m focus:outline-none focus:border-blue-500 text-white"
+            className="w-[50%] mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
           />
         </form>
       </div>
