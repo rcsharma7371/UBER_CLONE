@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="bg-[#1976D2] h-[100vh] w-full flex flex-col items-center justify-center relative">
+    <div className="bg-[#1976D2] h-[100dvh] w-full flex flex-col items-center justify-center relative">
       <div className="flex flex-col items-center relative w-full">
         <div className="flex items-center justify-center relative -ml-[50px]">
           <div className="h-[53px] w-[150px] overflow-hidden flex items-center justify-start">

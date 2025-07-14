@@ -48,11 +48,11 @@ const VerifyOtp = () => {
     console.log("OTP submitted:", enteredOtp);
     // Here you could send OTP to backend instead
     // Redirect after success
-    navigate("/signup-profile");
+    navigate("/new-password");
   };
 
   return (
-    <div className="bg-[#1A1A1A] min-h-screen flex flex-col p-5">
+    <div className="bg-[#1A1A1A] min-h-[100dvh] flex flex-col p-5">
       {/* Back arrow */}
       <div className="text-lg text-white flex justify-start w-full">
         <Link to="/user-login">
@@ -65,7 +65,7 @@ const VerifyOtp = () => {
         <h3 className="text-m mb-4">Verify OTP</h3>
         <p>OTP sent to your registered email r*****@gmail.com</p>
 
-        <form className="form w-full flex flex-row justify-between items-center" onSubmit={(e) => e.preventDefault()}>
+        <form className="form w-full flex flex-row justify-start items-center gap-[25px]" onSubmit={(e) => e.preventDefault()}>
           {[...Array(4)].map((_, index) => (
             <input
               key={index}
@@ -81,6 +81,7 @@ const VerifyOtp = () => {
             />
           ))}
         </form>
+          <h4 className="text-blue-500">Resend Code</h4>
       </div>
 
       {/* Fallback button (in case auto-submit fails) */}
@@ -89,7 +90,7 @@ const VerifyOtp = () => {
           onClick={handleSubmit}
           className="rounded-lg px-4 py-2 mb-2 bg-[#000000] text-center text-white w-full block"
         >
-          Send OTP
+          Verify OTP
         </button>
       </div>
     </div>

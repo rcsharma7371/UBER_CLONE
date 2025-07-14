@@ -12,7 +12,7 @@ const SplashScreen = () => {
   }, [navigate]);
 
   return (
-    <div className="splash-screen bg-[#1976D2] h-screen flex flex-col items-center justify-center">
+    <div className="splash-screen bg-[#1976D2] h-[100dvh] flex flex-col items-center justify-center">
       <div
         className="h-[181px] w-[181px] flex justify-center align-center rounded-[20px]"
         style={{

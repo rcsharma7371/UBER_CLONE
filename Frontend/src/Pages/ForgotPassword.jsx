@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   return (
-    <div className="bg-[#1A1A1A] min-h-screen flex flex-col p-5">
+    <div className="bg-[#1A1A1A] min-h-[100dvh] flex flex-col p-5">
       <div className="text-lg text-white flex justify-start w-full">
         <Link to="/user-login">
           <i className="fa-solid fa-arrow-left-long top-5"></i>

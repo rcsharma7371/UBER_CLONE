@@ -9,11 +9,12 @@ import UserSignUp from "./Pages/UserSignUp";
 import SignupProfile from "./Pages/SignupProfile";
 import RegistrationDone from "./Pages/RegistrationDone";
 import VerifyOtp from "./Pages/VerifyOtp";
+import NewPassword from "./Pages/NewPassword";
 
 const App = () => {
   return (
-    <div>
-      {/* <div className="container mx-auto h-[100vh] w-[100%]"> */}
+    <div className="h-[100dvh]">
+      {/* <div className="container mx-auto h-[100dvh] w-[100%]"> */}
         <Routes>
           <Route path="/" element={<SplashScreen />} />
           <Route path="/home" element={<Home />} />
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/registration-done" element={<RegistrationDone />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
+          <Route path="/new-password" element={<NewPassword />} />
 
         </Routes>
         <Routes>
