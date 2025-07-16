@@ -1,12 +1,12 @@
-import ForgotPassword from "../Pages/ForgotPassword";
-import Home from "../Pages/Home";
-import NewPassword from "../Pages/NewPassword";
-import RegistrationDone from "../Pages/RegistrationDone";
-import SignupProfile from "../Pages/SignupProfile";
-import SplashScreen from "../Pages/splashScreen";
-import UserLogin from "../Pages/UserLogin";
-import UserSignUp from "../Pages/UserSignUp";
-import VerifyOtp from "../Pages/VerifyOtp";
+import Home from "../Pages/Common/Home";
+import SplashScreen from "../Pages/Common/SplashScreen";
+import ForgotPassword from "../Pages/User/ForgotPassword";
+import NewPassword from "../Pages/User/NewPassword";
+import RegistrationDone from "../Pages/User/RegistrationDone";
+import SignupProfile from "../Pages/User/SignupProfile";
+import UserLogin from "../Pages/User/UserLogin";
+import UserSignUp from "../Pages/User/UserSignUp";
+import VerifyOtp from "../Pages/User/VerifyOtp";
 
 const user_router_links = [
   {

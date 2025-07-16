@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const UserSignUp = () => {
+const CaptainSignUp = () => {
   return (
     <div className="bg-[#1A1A1A] min-h-[100dvh] flex flex-col p-5">
       <div className="text-lg text-white flex justify-start w-full">
@@ -38,4 +38,4 @@ const UserSignUp = () => {
   );
 };
 
-export default UserSignUp;
+export default CaptainSignUp;

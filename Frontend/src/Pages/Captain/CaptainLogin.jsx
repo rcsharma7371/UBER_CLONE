@@ -39,16 +39,16 @@ const CaptainLogin = () => {
             ></i>
           )}
           <div className="w-full text-right mb-4">
-            <Link to="/forgot-password" className="text-white underline">
+            <Link to="/captain-forgot-password" className="text-white underline">
               forgot password?
             </Link>
           </div>
-          <button
+          <Link
             type="submit"
             className="rounded-lg px-4 py-2 mb-2 bg-[#000000] text-white"
           >
             Captain Login
-          </button>
+          </Link>
           <div>
             <p className="text-white text-sm">
               Don't have an account?{" "}
