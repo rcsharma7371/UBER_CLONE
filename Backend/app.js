@@ -15,20 +15,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use((req, res) => {
+app.use((req, res, next) => {
   console.log("Req url ", req.method, req.url);
   console.log("Req body ", req.body);
+  next();
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
   res.send("Welcome to Uber Clone API");
+  // next();
 });
 
 app.use("/users", userRoutes);
 app.use("/captain", captainRoutes);
 
 app.use("*", (req, res, next) => {
-  // console.error("Error occurred:", err);
+  console.error("Invalid url:");
   res.status(401).json({ error: "Invalid URL" });
 });
 
