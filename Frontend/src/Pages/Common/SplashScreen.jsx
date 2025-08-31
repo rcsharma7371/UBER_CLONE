@@ -6,7 +6,7 @@ const SplashScreen = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/home");
+      navigate("/start");
     }, 2000);
     return () => clearTimeout(timer); // Cleanup
   }, [navigate]);

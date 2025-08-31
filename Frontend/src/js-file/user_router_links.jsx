@@ -1,5 +1,6 @@
 import Home from "../Pages/Common/Home";
 import SplashScreen from "../Pages/Common/SplashScreen";
+import Start from "../Pages/Common/Start";
 import ForgotPassword from "../Pages/User/ForgotPassword";
 import NewPassword from "../Pages/User/NewPassword";
 import RegistrationDone from "../Pages/User/RegistrationDone";
@@ -12,6 +13,10 @@ const user_router_links = [
   {
     path: "/",
     element: <SplashScreen />,
+  },
+  {
+    path: "/start",
+    element: <Start />,
   },
   {
     path: "/home",

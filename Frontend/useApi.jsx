@@ -12,6 +12,7 @@ function useApi(apiFunc, { params = null, immediate = true } = {}) {
 
       // call API function (from service file)
       const response = await apiFunc(overrideParams || params);
+      console.log("API Response:", response);
       setData(response);
     } catch (err) {
       setError(err.response?.data?.message || err.message);

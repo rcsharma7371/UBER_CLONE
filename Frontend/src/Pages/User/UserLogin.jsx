@@ -2,31 +2,55 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useApi from "../../../useApi";
 import { loginUser } from "../../api/authApi";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const UserLogin = () => {
   const [hide, setHide] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   // useApi hook
-  const { data, loading, error, refetch } = useApi(loginUser, { immediate: false });
+  // const { data, loading, error, refetch } = useApi(loginUser, { immediate: false });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await refetch(formData); // trigger login
+
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/users/login`,
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
+
+      if (response?.data?.success === true) {
+        setLoading(false);
+        localStorage.setItem("token", response.data.token);
+        toast.success(response.data.message || "Login successful");
+        navigate("/home");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("Login error:", error);
+      toast.error(error?.response?.data?.message || "Login failed");
+    }
   };
 
   // ✅ Handle login success/failure in useEffect
-  useEffect(() => {
-    if (data?.success === true) {
-      localStorage.setItem("token", data.token); // store token
-      console.log("✅ Login successful:", data.user);
-      navigate("/home"); // redirect
-    } else if (data?.success === false) {
-      console.log("❌ Login failed:", data.message || "Invalid credentials");
-    }
-  }, [data, navigate]);
+  // useEffect(() => {
+  //   if (data?.success === true) {
+  //     localStorage.setItem("token", data.token); // store token
+  //     console.log("✅ Login successful:", data.user);
+  //     navigate("/home"); // redirect
+  //   } else if (data?.success === false) {
+  //     console.log("❌ Login failed:", data.message || "Invalid credentials");
+  //   }
+  // }, [data, navigate]);
 
   return (
     <div className="bg-[#1A1A1A] min-h-[100dvh] flex flex-col p-5">
@@ -40,13 +64,17 @@ const UserLogin = () => {
       {/* Form */}
       <div className="flex flex-col w-full p-3 flex-grow">
         <form className="flex flex-col w-full relative" onSubmit={handleSubmit}>
-          <h3 className="mb-2 semi-bold text-lg text-white">What's your email</h3>
+          <h3 className="mb-2 semi-bold text-lg text-white">
+            What's your email
+          </h3>
           <input
             type="email"
             placeholder="example@gmail.com"
             className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
 
           <h3 className="mb-2 semi-bold text-lg text-white">Enter Password</h3>
@@ -55,7 +83,9 @@ const UserLogin = () => {
             placeholder="Password"
             className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
           />
 
           {/* Eye toggle */}
@@ -88,12 +118,12 @@ const UserLogin = () => {
           </button>
 
           {/* Error Message */}
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {/* {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           {data?.success === false && (
             <p className="text-red-500 text-sm mt-2">
               {data.message || "Login failed. Please try again."}
             </p>
-          )}
+          )} */}
 
           {/* Sign Up Link */}
           <div>
