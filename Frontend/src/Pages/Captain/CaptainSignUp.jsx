@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const CaptainSignUp = () => {
   const [form, setForm] = useState({
@@ -21,7 +22,7 @@ const CaptainSignUp = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/captains/register`,
+        `${import.meta.env.VITE_BASE_URL}/captain/register`,
         {
           fullname: {
             firstname: form.firstName,
@@ -37,8 +38,9 @@ const CaptainSignUp = () => {
           },
         }
       );
+      console.log("success", response);
 
-      if (response?.data?.success === true) {
+      if (response?.status == 201) {
         // navigate to next page or show success message
         toast.success(
           response.data.message || "Captain registered successfully"
@@ -69,7 +71,10 @@ const CaptainSignUp = () => {
       </div>
       <div className="flex flex-col w-full p-3 flex-grow text-white justify-center">
         <h3 className="text-lg mb-6 font-semibold">What's your name?</h3>
-        <form className="form flex flex-col gap-4 w-full">
+        <form
+          className="form flex flex-col gap-4 w-full"
+          onSubmit={handleSubmit}
+        >
           <div className="flex gap-4">
             <input
               type="text"
@@ -137,12 +142,15 @@ const CaptainSignUp = () => {
             onChange={handleChange}
             value={form.v_type}
           />
+          <div className="w-full p-3 mt-4">
+            <button
+              className="rounded-lg px-4 py-2 bg-[#000000] text-center text-white w-full block hover:bg-[#222] transition-colors"
+              type="submit"
+            >
+              Next
+            </button>
+          </div>
         </form>
-      </div>
-      <div className="w-full p-3 mt-4">
-        <button className="rounded-lg px-4 py-2 bg-[#000000] text-center text-white w-full block hover:bg-[#222] transition-colors">
-          Next
-        </button>
       </div>
     </div>
   );

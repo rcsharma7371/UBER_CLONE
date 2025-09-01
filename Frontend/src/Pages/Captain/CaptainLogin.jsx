@@ -1,8 +1,36 @@
+import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const CaptainLogin = () => {
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+  });
+
   const [hide, setHide] = React.useState(true);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData, "formdata");
+
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/captain/login`,
+        formData
+      );
+      if (res.data.success == true) {
+        toast.success(res.data.message || "Login Successful");
+        localStorage.setItem("captainToken", res.data.captainToken);
+        // window.location.href = "/captain-home";
+      }
+    } catch (error) {
+      console.log(error, "error");
+      toast.error(error.response?.data?.message || "Something went wrong");
+    }
+  };
+
   return (
     <div className="bg-[#1A1A1A] min-h-[100dvh] flex flex-col p-5">
       <div className="text-lg text-white flex justify-start w-full">
@@ -12,7 +40,7 @@ const CaptainLogin = () => {
       </div>
 
       <div className="flex flex-col w-full p-3 flex-grow">
-        <form className="flex flex-col w-full relative">
+        <form className="flex flex-col w-full relative" onSubmit={handleSubmit}>
           <h3 className="mb-2 semi-bold text-lg text-white">
             What's your email
           </h3>
@@ -20,12 +48,20 @@ const CaptainLogin = () => {
             type="text"
             placeholder="example@gmail.com"
             className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
           <h3 className="mb-2 semi-bold text-lg text-white">Enter Password</h3>
           <input
             type={!hide ? "password" : "text"}
             placeholder="Password"
             className="mb-4 bg-transparent border-b border-b-[#EDF6FF] placeholder:text-m focus:outline-none text-white"
+            value={formData.password}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
           />
           {hide ? (
             <i
@@ -39,20 +75,23 @@ const CaptainLogin = () => {
             ></i>
           )}
           <div className="w-full text-right mb-4">
-            <Link to="/captain-forgot-password" className="text-white underline">
+            <Link
+              to="/captain-forgot-password"
+              className="text-white underline"
+            >
               forgot password?
             </Link>
           </div>
-          <Link
+          <button
             type="submit"
-            className="rounded-lg px-4 py-2 mb-2 bg-[#000000] text-white"
+            className="rounded-lg px-4 py-2 mb-2 bg-[#000000] text-white text-center"
           >
             Captain Login
-          </Link>
+          </button>
           <div>
             <p className="text-white text-sm">
               Don't have an account?{" "}
-              <Link to="/user-signup" className="text-blue-500 underline">
+              <Link to="/captain-signup" className="text-blue-500 underline">
                 Sign Up
               </Link>
             </p>
@@ -61,14 +100,14 @@ const CaptainLogin = () => {
       </div>
 
       {/* Bottom Button */}
-      <div className="w-full p-3">
+      {/* <div className="w-full p-3">
         <Link
           to="/captain-signup"
           className="rounded-lg px-4 py-2 mb-2 bg-[#000000] text-center text-white w-full block"
         >
           Captain Signup
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
